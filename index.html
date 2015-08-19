@@ -99,9 +99,9 @@
 			</div>
 			<table>
 				<tr>
-					<td><button id="lose" class="goal">Lose</button></td>
+					<td><button id="cut" class="goal">Cut</button></td>
 					<td><button id="maintain" class="goal">Maintain</button></td>
-					<td><button id="gain" class="goal">Gain</button></td>
+					<td><button id="bulk" class="goal">Bulk</button></td>
 				</tr>
 			</table>
 			<div style="float:right"><img id="settings" src="settings.png" /></div>
@@ -184,8 +184,8 @@
 				var lbm = weight-weight*(bf*.01);
 
 				cal = (370 + (9.8 * lbm))*actLevel;
-				if ($("#lose").hasClass("down")) cal -= cal*.2;
-				if ($("#gain").hasClass("down")) cal += cal*.2;
+				if ($("#cut").hasClass("down")) cal -= cal*.2;
+				if ($("#bulk").hasClass("down")) cal += cal*.2;
 
 				var protein = lbm*prolbm;
 				var fat = bf > 20 ? lbm * fatlbm : weight * fattbw;
