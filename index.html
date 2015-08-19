@@ -57,6 +57,9 @@
 			color:DimGray;
 			padding:3px;
 		}
+		a {
+			color:DimGray;
+		}
 	</style>
 	<body style="background-image:url('stardust.png');">
 		<div style="display:inline-block; background:white; padding:25px; margin-top:7px;">
@@ -71,17 +74,15 @@
 				</tr>
 			</table>
 			<br />
-			<div style="text-align:left;">
-				Activity Level <img id="help" src="help.png" />:
-			</div>
+			<div style="text-align:left; float:left;">Activity Level:</div>
+			<div style="float:right;"><img id="help" src="help.png" /></div>
+			<br />
 			<div id="helpAct" style="display:none; text-align:left; font-size:14px; width:100%;">
-				<br />
 				1 &bull; Sedentary<br />
 				2 &bull; 1-3 light exercises per week<br />
 				3 &bull; 3-5 moderate exercises per week<br />
 				4 &bull; 6-7 hard exercises per week<br />
 				5 &bull; Crazy<br />
-				<br />
 			</div>
 			<table>
 				<tr>
@@ -137,10 +138,22 @@
 					<td style="text-align:right;" id="fat"></td>
 				</tr>
 			</table>
+			<br />
+			<div style="float:right;"><img id="info" src="help.png" /></div>
+			<br />
+			<div id="infoContainer" style="display:none; text-align:left; font-size:14px; width:100%;">
+				Daily Calorie Needs Formula:<br />
+				<br />
+				Katch-McArdle:<br />
+				BMR = (370 + 9.8 * LBM) * Activity Level<br />
+				<br /><br />
+				GitHub: <a href="http://git.io/vsshm">http://git.io/vsshm</a>
+			</div>
 		</div>
 		<script>
-			$("#help").hover(function(){$("#helpAct").show().css({"display":"inline-block"});},function(){$("#helpAct").hide();});
-			$("#settings").click(function(){$("#settingsContainer").toggle();});
+			$("#help").click(function(){$("#helpAct").toggle()});
+			$("#info").click(function(){$("#infoContainer").toggle()});
+			$("#settings").click(function(){$("#settingsContainer").toggle()});
 			
 			$("button").click(function() {
 				if (!$(this).hasClass("down")) {
