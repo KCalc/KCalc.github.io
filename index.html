@@ -103,6 +103,21 @@
 					<td><button id="gain" class="goal">Gain</button></td>
 				</tr>
 			</table>
+			<div style="float:right"><img id="settings" src="settings.png" /></div>
+			<table id="settingsContainer" style="display:none; font-size:14px;">
+				<tr>
+					<td style="text-align:left;">Protein/lb of LBM:</td>
+					<td style="text-align:right;"><input id="prolbm" type="number" min="0" max="3" step="0.05" value="1" style="width:50px"></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Fat/lb of TBW [<20% BF]:</td>
+					<td style="text-align:right;"><input id="fattbw" type="number" min="0" max="1" step="0.05" value="0.4" style="width:50px"></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Fat/lb of LBM [>20% BF]:</td>
+					<td style="text-align:right;"><input id="fatlbm" type="number" min="0" max="1" step="0.05" value="0.4" style="width:50px"></td>
+				</tr>
+			</table>
 			<br />
 			<table style="width:100%;" cellpadding="5px 0px 5px 0px">
 				<tr>
@@ -125,6 +140,7 @@
 		</div>
 		<script>
 			$("#help").hover(function(){$("#helpAct").show().css({"display":"inline-block"});},function(){$("#helpAct").hide();});
+			$("#settings").click(function(){$("#settingsContainer").toggle();});
 			
 			$("button").click(function() {
 				if (!$(this).hasClass("down")) {
@@ -145,14 +161,17 @@
 				var actLevel = actArray[$("button.act.down").attr("id")];
 				var weight = $("#weight").val();
 				var bf = $("#bf").val();
+				var prolbm = $("#prolbm").val();
+				var fattbw = $("#fattbw").val();
+				var fatlbm = $("#fatlbm").val();
 				var lbm = weight-weight*(bf*.01);
 
 				cal = (370 + (9.8 * lbm))*actLevel;
 				if ($("#lose").hasClass("down")) cal -= cal*.2;
 				if ($("#gain").hasClass("down")) cal += cal*.2;
 
-				var protein = weight - weight * (bf * .01);
-				var fat = bf > 20 ? lbm * .4 : weight * .4;
+				var protein = lbm*prolbm;
+				var fat = bf > 20 ? lbm * fatlbm : weight * fattbw;
 				var carb = protein*4+fat*9 < cal ? (cal - (protein * 4) - (fat * 9)) / 4 : 0;
 
 				$("#cal").text(Math.round(protein*4+fat*9+carb*4));
@@ -165,6 +184,9 @@
 			if (getParameter("bf")) $("#bf").val(getParameter("bf"));
 			if (getParameter("act")) $("#" + getParameter("act")).addClass("down");
 			if (getParameter("goal")) $("#" + getParameter("goal")).addClass("down");
+			if (getParameter("prolbm")) $("#prolbm").val(getParameter("prolbm"));
+			if (getParameter("fattbw")) $("#fattbw").val(getParameter("fattbw"));
+			if (getParameter("fatlbm")) $("#fatlbm").val(getParameter("fatlbm"));
 			if (!$("button.goal").hasClass("down")) $("#maintain").addClass("down");
 			if (!$("button.act").hasClass("down")) $("#2").addClass("down");
 
