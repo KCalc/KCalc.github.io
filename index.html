@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<style>
 		@font-face {
 		  font-family: "bit";
@@ -60,24 +59,28 @@
 		a {
 			color:DimGray;
 		}
+		a:hover {
+			color:black;
+		}
 	</style>
 	<body style="background-image:url('stardust.png');">
-		<div style="display:inline-block; background:white; padding:25px; margin-top:7px;">
+		<div style="display:inline-block; background:white; padding:25px; margin-top:7px; width:350px;">
 			<table>
 				<tr>
 					<td style="text-align:left;">Weight [lb]:</td>
 					<td style="text-align:right;"><input id="weight" type="number" min="0" max="1000" value="180" style="width:50px"></td>
 				</tr>
 				<tr>
-					<td style="text-align:left;">Body Fat Percent:</td>
+				<td style="text-align:left;">Body Fat Percent <img id="helpFat" src="help.png" />:</td>
 					<td style="text-align:right;"><input id="bf" type="number" min="0" max="100" value="20" style="width:50px"></td>
 				</tr>
 			</table>
+			<div id="helpFatContainer" style="display:none; width:100%;">
+				<img id="bf" src="bf.jpg" width="100%" />
+			</div>
+			<div style="text-align:left; float:left; padding:2px;">Activity Level <img id="help" src="help.png" />:</div>
 			<br />
-			<div style="text-align:left; float:left;">Activity Level:</div>
-			<div style="float:right;"><img id="help" src="help.png" /></div>
-			<br />
-			<div id="helpAct" style="display:none; text-align:left; font-size:14px; width:100%;">
+			<div id="helpAct" style="display:none; text-align:left; font-size:14px; width:100%; float:left; padding-left:10px;">
 				1 &bull; Sedentary<br />
 				2 &bull; 1-3 light exercises per week<br />
 				3 &bull; 3-5 moderate exercises per week<br />
@@ -93,10 +96,7 @@
 					<td><button id="5" class="act">5</button></td>
 				</tr>
 			</table>
-			<br />
-			<div style="text-align:left;">
-				Goal:
-			</div>
+			<div style="text-align:left; padding:2px;">Goal:</div>
 			<table>
 				<tr>
 					<td><button id="cut" class="goal">Cut</button></td>
@@ -105,10 +105,9 @@
 				</tr>
 			</table>
 			<br />
-			<div style="float:right"><img id="settings" src="settings.png" /></div>
-			<div style="text-align:left; float:left;">Results:</div>
+			<div style="text-align:left; float:left; padding:2px;">Results <img id="settings" src="help.png" />:</div>
 			<br />
-			<table id="settingsContainer" style="display:none; font-size:14px;">
+			<table id="settingsContainer" style="display:none; font-size:14px; padding-left:10px;">
 				<tr>
 					<td style="text-align:left;">Protein/lb of LBM:</td>
 					<td style="text-align:right;"><input id="prolbm" type="number" min="0" max="3" step="0.05" value="1" style="width:50px"></td>
@@ -122,7 +121,6 @@
 					<td style="text-align:right;"><input id="fatlbm" type="number" min="0" max="1" step="0.05" value="0.4" style="width:50px"></td>
 				</tr>
 			</table>
-			<br />
 			<table style="width:100%;" cellpadding="5px 0px 5px 0px">
 				<tr>
 					<td style="text-align:left;">Calories</td>
@@ -141,10 +139,9 @@
 					<td style="text-align:right;" id="fat"></td>
 				</tr>
 			</table>
-			<br />
 			<div style="float:right;"><img id="info" src="help.png" /></div>
-			<br />
-			<div id="infoContainer" style="display:none; text-align:left; font-size:14px; width:100%;">
+			<div id="infoContainer" style="display:none; text-align:left; font-size:14px; width:100%; padding-left:10px;">
+				<br /><br />
 				Daily Calorie Needs Formula:<br />
 				<br />
 				Katch-McArdle:<br />
@@ -154,10 +151,12 @@
 				or subtracting 20% from your Daily Calorie<br />
 				Needs.<br />
 				<br /><br />
-				GitHub: <a href="http://git.io/vsshm">http://git.io/vsshm</a>
+				GitHub: <a href="http://git.io/vsshm" target="_blank">http://git.io/vsshm</a>
 			</div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>
+			$("#helpFat").click(function(){$("#helpFatContainer").toggle()});
 			$("#help").click(function(){$("#helpAct").toggle()});
 			$("#info").click(function(){$("#infoContainer").toggle()});
 			$("#settings").click(function(){$("#settingsContainer").toggle()});
