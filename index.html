@@ -25,7 +25,7 @@
 			background: white;
 			color:DimGray;
 			height:50px;
-			width:85px;
+			width:100%;
 			padding:0px;
 			outline:none;
 			font-size:18px;
@@ -40,12 +40,10 @@
 			background: DimGray;
 			color: white;
 		}
-		.act{
-			width:50px;
-		}
 		table {
 			width:100%;
 			margin:0px;
+			border-spacing: 0px;
 		}
 		td {
 			padding:5px 0px 5px 0px;
@@ -89,19 +87,19 @@
 			</div>
 			<table>
 				<tr>
-					<td><button id="1" class="act">1</button></td>
-					<td><button id="2" class="act">2</button></td>
-					<td><button id="3" class="act">3</button></td>
-					<td><button id="4" class="act">4</button></td>
-					<td><button id="5" class="act">5</button></td>
+					<td style="width:20%;"><button id="1" class="act">1</button></td>
+					<td style="width:20%;"><button id="2" class="act">2</button></td>
+					<td style="width:20%;"><button id="3" class="act">3</button></td>
+					<td style="width:20%;"><button id="4" class="act">4</button></td>
+					<td style="width:20%;"><button id="5" class="act">5</button></td>
 				</tr>
 			</table>
 			<div style="text-align:left; padding:2px;">Goal:</div>
 			<table>
 				<tr>
-					<td><button id="cut" class="goal">Cut</button></td>
-					<td><button id="maintain" class="goal">Maintain</button></td>
-					<td><button id="bulk" class="goal">Bulk</button></td>
+					<td style="width:33%;"><button id="cut" class="goal">Cut</button></td>
+					<td style="width:33%;"><button id="maintain" class="goal">Maintain</button></td>
+					<td style="width:33%;"><button id="bulk" class="goal">Bulk</button></td>
 				</tr>
 			</table>
 			<br />
