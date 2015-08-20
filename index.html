@@ -46,7 +46,7 @@
 			border-spacing: 0px;
 		}
 		td {
-			padding:5px 0px 5px 0px;
+			padding:0px 0px 5px 0px;
 		}
 		input {
 			font-family: bit, Arial, Helvetica, sans-serif;
@@ -76,8 +76,7 @@
 			<div id="helpFatContainer" style="display:none; width:100%;">
 				<img id="bf" src="bf.jpg" width="100%" />
 			</div>
-			<div style="text-align:left; float:left; padding:2px;">Activity Level <img id="help" src="help.png" />:</div>
-			<br />
+			<div style="text-align:left; float:left;">Activity Level <img id="help" src="help.png" />:</div>
 			<div id="helpAct" style="display:none; text-align:left; font-size:14px; width:100%; float:left; padding-left:10px;">
 				1 &bull; Sedentary<br />
 				2 &bull; 1-3 light exercises per week<br />
@@ -85,7 +84,7 @@
 				4 &bull; 6-7 hard exercises per week<br />
 				5 &bull; Crazy<br />
 			</div>
-			<table>
+			<table style="padding-top:10px;">
 				<tr>
 					<td style="width:20%;"><button id="1" class="act">1</button></td>
 					<td style="width:20%;"><button id="2" class="act">2</button></td>
@@ -94,17 +93,15 @@
 					<td style="width:20%;"><button id="5" class="act">5</button></td>
 				</tr>
 			</table>
-			<div style="text-align:left; padding:2px;">Goal:</div>
-			<table>
+			<div style="text-align:left; padding-top:10px;">Goal:</div>
+			<table style="padding-top:10px;">
 				<tr>
 					<td style="width:33%;"><button id="cut" class="goal">Cut</button></td>
 					<td style="width:33%;"><button id="maintain" class="goal">Maintain</button></td>
 					<td style="width:33%;"><button id="bulk" class="goal">Bulk</button></td>
 				</tr>
 			</table>
-			<br />
-			<div style="text-align:left; float:left; padding:2px;">Results <img id="settings" src="help.png" />:</div>
-			<br />
+			<div style="text-align:left; float:left; padding-top:20px;">Results <img id="settings" src="help.png" />:</div>
 			<table id="settingsContainer" style="display:none; font-size:14px; padding-left:10px;">
 				<tr>
 					<td style="text-align:left;">Protein/lb of LBM:</td>
@@ -119,7 +116,7 @@
 					<td style="text-align:right;"><input id="fatlbm" type="number" min="0" max="1" step="0.05" value="0.4" style="width:50px"></td>
 				</tr>
 			</table>
-			<table style="width:100%;" cellpadding="5px 0px 5px 0px">
+			<table style="width:100%; padding-top:15px;">
 				<tr>
 					<td style="text-align:left;">Calories</td>
 					<td style="text-align:right;" id="cal"></td>
