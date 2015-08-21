@@ -75,8 +75,8 @@
 			<div id="helpFatContainer" style="display:none; width:100%;">
 				<img id="bf" src="bf.jpg" width="100%" />
 			</div>
-			<div style="text-align:left; float:left;">Activity Level <img id="help" src="help.png" />:</div>
-			<div id="helpAct" style="display:none; text-align:left; font-size:14px; width:100%; float:left; padding-left:10px;">
+			<div style="text-align:left; float:left;">Activity Level <img id="helpAct" src="help.png" />:</div>
+			<div id="helpActContainer" style="display:none; text-align:left; font-size:14px; width:100%; float:left; padding-left:10px;">
 				1 &bull; Sedentary<br />
 				2 &bull; Lightly Active<br />
 				3 &bull; Moderately Active<br />
@@ -156,11 +156,12 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>
-			$("#helpFat").click(function(){$("#helpFatContainer").toggle()});
-			$("#help").click(function(){$("#helpAct").toggle()});
-			$("#info").click(function(){$("#infoContainer").toggle()});
-			$("#settings").click(function(){$("#settingsContainer").toggle()});
-			
+		
+			$("img").click(function() {
+				$('#' + $(this).attr("id") + "Container").toggle();
+				$('#' + $(this).attr("id") + "Container").css("display") == "none" ? $(this).attr("src", "help.png") : $(this).attr("src", "x.png");
+			});
+
 			$("button").click(function() {
 				if (!$(this).hasClass("down")) {
 					$("button." + $(this).attr("class")).removeClass("down");
